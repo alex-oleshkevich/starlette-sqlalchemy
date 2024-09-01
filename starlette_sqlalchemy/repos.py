@@ -139,8 +139,11 @@ class Repo(typing.Generic[T]):
         stmt = self.get_filtered_query(filter_)
         return await self.query.one_or_raise(stmt, exc)
 
-    async def all(self, filter_: RepoFilter[T]) -> Collection[T]:
+    async def all(self, filter_: RepoFilter[T] | None = None) -> Collection[T]:
         """Return all rows that match the given filters."""
 
-        stmt = self.get_filtered_query(filter_)
+        if filter_ is None:
+            stmt = self.get_base_query()
+        else:
+            stmt = self.get_filtered_query(filter_)
         return await self.query.all(stmt)

@@ -106,6 +106,10 @@ class TestAll:
         user = users[0]
         assert user.id == 2
 
+    async def test_all_no_filters(self, user_repo: UserRepo) -> None:
+        users = await user_repo.all()
+        assert len(users) == 9
+
 
 class TestOne:
     async def test_one(self, user_repo: UserRepo) -> None:
