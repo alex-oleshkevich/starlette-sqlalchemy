@@ -21,11 +21,12 @@ poetry add starlette_sqlalchemy
 
 ## Features
 
-- query helper
-- pagination
-- session middleware
-- model repository
-- repository filters
+- **Vanilla SQLAlchemy** - no wrappers, use plain SQLAlchemy as it is intended
+- **Query helper** - removes boilerplate code when querying the database
+- **Pagination** - automatically paginate SQLAlchemy queries
+- **Session middleware** - create and inject SQLAlchemy session into request state
+- **Model repository** - much like Django's ModelManager, encapsulates model queries in a single place
+- **Repository filters** - reusable and composable filters for model repositories to share complex queries
 
 ## Usage
 
